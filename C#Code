@@ -10,16 +10,17 @@ public class Buku 							  // Class Buku merupakan sebuah fungsi yang berguna un
 	public int Stok {get; set; }			// setter merupakan fungsi program untuk menulis nilai properti
 	public string SStok {get; set; }		// digunakan untuk melihat katalog dan menginputkan buku baru ke katalog
 	
-	public Buku(string judul, string penerbit, int tahun,int Stok) //merupakan sebuah fungsi constructor pada C# untuk mempermudah penginputan dan pembacaan pada metode program
+	public Buku(string judul, string penerbit, int tahun) //merupakan sebuah fungsi constructor pada C# untuk mempermudah penginputan dan pembacaan pada metode program
 	{
 		Judul = judul;				              	// dikarenakan sebelumnya object properti judul digunakan untuk oop dengan huruf kapital diawal
 		Penerbit = penerbit;		        	  	// dan ini merupakan isi dari variabel buku yang bedasarkan object
 		Tahun = tahun;				              	// maka di deklarasikan kembali objek yang digunakan pada constructor terhadap oop 
-		if (Stok < 10)				              	// fungsi decision if
+		Stok = 0;						// inisialisasi stok = 0
+		if (Stok <= 10)				              	// fungsi decision if
 		{							// berfungsi untuk melihat jumlah stok yang dapat dilihat oleh pembeli
 			SStok = "Terbatas";		            	// agar bersifat menarik minat pembeli untuk melihat buku terlaris saat ini
 		}							// apabila stok < 10 maka pembeli akan melihat stok terbatas 
-		else if (Stok > 10)			            	// berarti merupakan buku yang tidak banyak lagi tersisa
+		else if (Stok >= 11)			            	// berarti merupakan buku yang tidak banyak lagi tersisa
 		{							// sehingga pembeli akan berpikir akan segera membeli buku sebelum habis
 			SStok = "Tersedia";		            	// untuk stok > 10 akan tertulis tersedia maka pembeli dapat memprioritaskan
 		}							// buku mana yang akan dibeli terlebih dahulu
@@ -53,8 +54,11 @@ public class TokoBuku            				// sebuah class toko buku yang berisi beber
     {
         Console.WriteLine("Daftar Buku:"); 			//sebuah output text berisi kalimat " Daftar Buku :"
         for (int i = 0; i < bukuCount; i++) 			// merupakan sebuah looping for yang berarti untuk dapat melist dimulai dari angka 0 yang 
-        {							// merupakan awal perhitungan yang biasa digunakan pada programmer secara white box 
-            Buku buku = listBuku[i];		   		 // sampai angka jumlah array buku saat ini
+        {		
+	if (buku != null)
+        {				   			// merupakan awal perhitungan yang biasa digunakan pada programmer secara white box 
+            Buku buku = listBuku[i];		   		// sampai angka jumlah array buku saat ini
+	}
             Console.WriteLine($"Judul: {buku.Judul}, Penerbit: {buku.Penerbit}, Tahun: {buku.Tahun}, Stok: {buku.Stok}"); // berisi variabel buku yang ada saat ini
         }
     }
@@ -63,8 +67,10 @@ public class TokoBuku            				// sebuah class toko buku yang berisi beber
     {
         Console.WriteLine("Daftar Buku:"); 			// berbeda dengan penglihatan buku admin ini adalah versi ringkas tanpa looping for 
         foreach (Buku buku in listBuku)			  	// melihat semua buku yang ada 
+        {	if (buku != null)
         {
             Console.WriteLine($"Judul: {buku.Judul}, Penerbit: {buku.Penerbit}, Tahun: {buku.Tahun}, Stok: {buku.SStok}"); // perbedaan antara admin dan pembeli
+	}
         }							// dapat dilihat dari jumlah stok buku agar menarik perhatian pembeli
     }
 
@@ -98,7 +104,7 @@ public class Program													// sebuah class berisi main program
 	{	
 		TokoBuku tokobuku = new TokoBuku();									//inisialisasi awal untuk pengisian variabel data buku 
 		Buku buku1 = new Buku("Gajah Merah Jambu", "Raditz Saiyan 3", 2025, 10);				//bedasarkan constructor pada class Buku sebelumnya
-		
+		buku1.Stok = 10;
 		tokobuku.TambahBuku(buku1);										//sebuah perintah untuk menjalankan program TambahBuku
 
 		
@@ -157,7 +163,8 @@ public class Program													// sebuah class berisi main program
 						int tahun = int.Parse(Console.ReadLine());				// sda
 						Console.Write("Stok: ");						// sda
 						int stok = int.Parse(Console.ReadLine());				// sda
-						Buku bukuBaru = new Buku(judul, penerbit, tahun, stok);			// penambahan variabel yang telah diisikan untuk buku baru
+						Buku bukuBaru = new Buku(judul, penerbit, tahun);			// penambahan variabel yang telah diisikan untuk buku baru
+						bukuBaru.Stok = stok;
 						tokobuku.TambahBuku(bukuBaru);						// penjalanan program penambahan buku
 						break;									// akhir case 2
 					case 3:										// case 3 untuk menutup loop sehingga dapat kembali
