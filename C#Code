@@ -16,7 +16,7 @@ public class Buku 							  // Class Buku merupakan sebuah fungsi yang berguna un
 		Penerbit = penerbit;		        	  	// dan ini merupakan isi dari variabel buku yang bedasarkan object
 		Tahun = tahun;				              	// maka di deklarasikan kembali objek yang digunakan pada constructor terhadap oop 
 		if (Stok < 10)				              	// fungsi decision if
-		{							              	// berfungsi untuk melihat jumlah stok yang dapat dilihat oleh pembeli
+		{							// berfungsi untuk melihat jumlah stok yang dapat dilihat oleh pembeli
 			SStok = "Terbatas";		            	// agar bersifat menarik minat pembeli untuk melihat buku terlaris saat ini
 		}							                // apabila stok < 10 maka pembeli akan melihat stok terbatas 
 		else if (Stok > 10)			            	// berarti merupakan buku yang tidak banyak lagi tersisa
