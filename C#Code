@@ -18,64 +18,64 @@ public class Buku 							  // Class Buku merupakan sebuah fungsi yang berguna un
 		if (Stok < 10)				              	// fungsi decision if
 		{							// berfungsi untuk melihat jumlah stok yang dapat dilihat oleh pembeli
 			SStok = "Terbatas";		            	// agar bersifat menarik minat pembeli untuk melihat buku terlaris saat ini
-		}							                // apabila stok < 10 maka pembeli akan melihat stok terbatas 
+		}							// apabila stok < 10 maka pembeli akan melihat stok terbatas 
 		else if (Stok > 10)			            	// berarti merupakan buku yang tidak banyak lagi tersisa
-		{							                // sehingga pembeli akan berpikir akan segera membeli buku sebelum habis
+		{							// sehingga pembeli akan berpikir akan segera membeli buku sebelum habis
 			SStok = "Tersedia";		            	// untuk stok > 10 akan tertulis tersedia maka pembeli dapat memprioritaskan
-		}							                // buku mana yang akan dibeli terlebih dahulu
+		}							// buku mana yang akan dibeli terlebih dahulu
 		else if (Stok == 0)		            		// apabila stok 0 maka berarti buku dalam keadaan habis 
-		{						                    // dan belum di stok ulang
-			SStok = "Habis";		              	//
-		}							                //
+		{						        // dan belum di stok ulang
+			SStok = "Habis";		              	
+		}							
 	}								
 }									
 public class TokoBuku            				// sebuah class toko buku yang berisi beberapa program yang digunakan pada main program 
-{ 								                // berfungsi hampir sama dengan directive namun function yang terdapat program tanpa program dari luar
+{ 								// berfungsi hampir sama dengan directive namun function yang terdapat program tanpa program dari luar
     public Buku[] listBuku;			        	// merupakan sebuah array Buku yang menentukan jumlah unit buku yang dapat dimasukan kedalam list buku
     public int bukuCount;			          	// sebuah operator untuk perhitungan jumlah buku saat ini
 
-    public TokoBuku()				            // sebuah class toko buku untuk mendeklarasikan variabel array atau buku maksimal yang 
-    {							                // dapat di inputkan 
-        listBuku = new Buku[100];	      		// Hanya 100 Jenis Buku di toko buku Axy Jaya ini berguna rotasi dagangan dan pembuatan katalog
+    public TokoBuku()				            	// sebuah class toko buku untuk mendeklarasikan variabel array atau buku maksimal yang 
+    {							        // dapat di inputkan 
+        listBuku = new Buku[100];	      			// Hanya 100 Jenis Buku di toko buku Axy Jaya ini berguna rotasi dagangan dan pembuatan katalog
         bukuCount = 0;				          	// inisialisasi objek agar dimulai dari angka 0 sebagai titik awal atau kosong
     }
 	
-	public void TambahBuku(Buku buku)         // sebuah class program untuk penambahan buku
+	public void TambahBuku(Buku buku)       		// sebuah class program untuk penambahan buku
     {
-        if (bukuCount < listBuku.Length)	  // dilakukan pengecekan array terlebih dahulu untuk mengecek jumlah array dalam buku apabila kecil
-        {									  // atau dibawah jumlah array saat ini maka buku dapat ditambahkan
-            listBuku[bukuCount] = buku;		  // apabila telah ditambahkan buku sesuai dengan varibel constructor sebelumnya maka jumlah array
-            bukuCount++;				      // akan ditambahkan
+        if (bukuCount < listBuku.Length)	 		// dilakukan pengecekan array terlebih dahulu untuk mengecek jumlah array dalam buku apabila kecil
+        {							// atau dibawah jumlah array saat ini maka buku dapat ditambahkan
+            listBuku[bukuCount] = buku;		 		// apabila telah ditambahkan buku sesuai dengan varibel constructor sebelumnya maka jumlah array
+            bukuCount++;				     	// akan ditambahkan
         }
     }
 	
     public void DisplayBuku()				 	//sebuah class program untuk penglihatan buku oleh admin
     {
-        Console.WriteLine("Daftar Buku:"); 		//sebuah output text berisi kalimat " Daftar Buku :"
-        for (int i = 0; i < bukuCount; i++) 	// merupakan sebuah looping for yang berarti untuk dapat melist dimulai dari angka 0 yang 
-        {								        // merupakan awal perhitungan yang biasa digunakan pada programmer secara white box 
-            Buku buku = listBuku[i];		    // sampai angka jumlah array buku saat ini
+        Console.WriteLine("Daftar Buku:"); 			//sebuah output text berisi kalimat " Daftar Buku :"
+        for (int i = 0; i < bukuCount; i++) 			// merupakan sebuah looping for yang berarti untuk dapat melist dimulai dari angka 0 yang 
+        {							// merupakan awal perhitungan yang biasa digunakan pada programmer secara white box 
+            Buku buku = listBuku[i];		   		 // sampai angka jumlah array buku saat ini
             Console.WriteLine($"Judul: {buku.Judul}, Penerbit: {buku.Penerbit}, Tahun: {buku.Tahun}, Stok: {buku.Stok}"); // berisi variabel buku yang ada saat ini
         }
     }
 	
-	public void PembeliBuku()  			        	// sebuah class program untuk penglihatan buku oleh pembeli
+	public void PembeliBuku()  			       	// sebuah class program untuk penglihatan buku oleh pembeli
     {
         Console.WriteLine("Daftar Buku:"); 			// berbeda dengan penglihatan buku admin ini adalah versi ringkas tanpa looping for 
         foreach (Buku buku in listBuku)			  	// melihat semua buku yang ada 
         {
             Console.WriteLine($"Judul: {buku.Judul}, Penerbit: {buku.Penerbit}, Tahun: {buku.Tahun}, Stok: {buku.SStok}"); // perbedaan antara admin dan pembeli
-        }								          	// dapat dilihat dari jumlah stok buku agar menarik perhatian pembeli
+        }							// dapat dilihat dari jumlah stok buku agar menarik perhatian pembeli
     }
 
-    public int JumlahStok()					        // sebuah class yang digunakan untuk perhitungan jumlah stok yang ada di toko buku
+    public int JumlahStok()					// sebuah class yang digunakan untuk perhitungan jumlah stok yang ada di toko buku
     {
-        int totalStok = 0;					        //inisialisasi awal totalstok = 0
+        int totalStok = 0;					//inisialisasi awal totalstok = 0
         foreach (Buku buku in listBuku)    			//dihitung stok dari setiap buku yang ada
         {
-            totalStok += buku.Stok;			   		//sebuah aritmatika penjumlahan stok buku dari buku 1 sampai buku terkahir
+            totalStok += buku.Stok;			  	//sebuah aritmatika penjumlahan stok buku dari buku 1 sampai buku terkahir
         }
-        return totalStok;					        //hasil akhir dari semua penjumlahan stok buku
+        return totalStok;					//hasil akhir dari semua penjumlahan stok buku
     }
 	
 	public Buku carijudulbuku(string judul)	  		//sebuah class untuk pencarian judul buku oleh pembeli
@@ -83,132 +83,132 @@ public class TokoBuku            				// sebuah class toko buku yang berisi beber
 		foreach (Buku buku in listBuku)	      		//seperti sebelumnya akan mencari setiap buku yang ada
 		{
 			if (buku != null && string.Equals(buku.Judul, judul, StringComparison.OrdinalIgnoreCase)) // pencarian buku 
-			{							                      				//disini saya menggunakan string equal sama ignoracase untuk mempermudah pembeli pencarian buku
+			{							                      			//disini saya menggunakan string equal sama ignoracase untuk mempermudah pembeli pencarian buku
 				return buku;				              					//namun judul harus lengkap
-			}								                     			//apabila sesuai dengan judul maka akan diperlihatkan buku bedasarkan judul tersebut
+			}								                     		//apabila sesuai dengan judul maka akan diperlihatkan buku bedasarkan judul tersebut
 		}
 		return null; 					                					//apabila buku tidak ditemukan maka akan memberiakan variabel null. 
 	}
 }
 
 	
-public class Program																                    // sebuah class berisi main program
+public class Program													// sebuah class berisi main program
 {
-	public static void Main()												      	                  	// subclass pada program berisi main program
+	public static void Main()											// subclass pada program berisi main program
 	{	
-		TokoBuku tokobuku = new TokoBuku();											       		        //inisialisasi awal untuk pengisian variabel data buku 
-		Buku buku1 = new Buku("Gajah Merah Jambu", "Raditz Saiyan 3", 2025, 10);						//bedasarkan constructor pada class Buku sebelumnya
+		TokoBuku tokobuku = new TokoBuku();									//inisialisasi awal untuk pengisian variabel data buku 
+		Buku buku1 = new Buku("Gajah Merah Jambu", "Raditz Saiyan 3", 2025, 10);				//bedasarkan constructor pada class Buku sebelumnya
 		
-		tokobuku.TambahBuku(buku1);													                    //sebuah perintah untuk menjalankan program TambahBuku
+		tokobuku.TambahBuku(buku1);										//sebuah perintah untuk menjalankan program TambahBuku
 
 		
-		bool exit = false;													                          	//sebuah inisialisasi awal yang berguna agar tidak terjadi infinite
-																			                            //loop serta dapat kembali ke menu awal.
+		bool exit = false;											//sebuah inisialisasi awal yang berguna agar tidak terjadi infinite
+															//loop serta dapat kembali ke menu awal.
 		
-		while (!exit)																                    //sebuah loop agar mempermudahkan pengguna untuk mengakses menu
+		while (!exit)												//sebuah loop agar mempermudahkan pengguna untuk mengakses menu
 		{
-		Console.WriteLine("-------------------------");													// sebuah output text yang berisi menu awal serta perintah input
-		Console.WriteLine("Toko Buku Axy Jaya");									    				// sda
-		Console.WriteLine("Daftar Menu : ");									      					// sda
-		Console.WriteLine("1. Penjual");										        				// sda
-		Console.WriteLine("2. Pembeli");										        				// sda
-		Console.WriteLine("Inputkan Angka:");									      					// sda 
-		int input = int.Parse(Console.ReadLine());												  // inisialisasi input serta pembacaan input pada serial monitor / console
+		Console.WriteLine("-------------------------");								// sebuah output text yang berisi menu awal serta perintah input
+		Console.WriteLine("Toko Buku Axy Jaya");								// sda
+		Console.WriteLine("Daftar Menu : ");									// sda
+		Console.WriteLine("1. Penjual");									// sda
+		Console.WriteLine("2. Pembeli");									// sda
+		Console.WriteLine("Inputkan Angka:");									// sda 
+		int input = int.Parse(Console.ReadLine());								// inisialisasi input serta pembacaan input pada serial monitor / console
 		
 		
-		switch (input)																               //sebuah fungsi decision switch
+		switch (input)												//sebuah fungsi decision switch
 		{							  
-			case 1:																                  	// case 1 apabila mengetikan angka 1
-				Console.WriteLine("-------------------------");										// sebuah output text yang berisi permintaan password
-				Console.WriteLine("Selamat Datang Admin Toko");										// sda
-				Console.WriteLine("Masukan Password");							  				  	// sda
-				Console.WriteLine("Inputkan Angka:");											    // sda
-				var password = Console.ReadLine();								    			  	// pembacaan password yang telah diinputkan berupa var
-				if (password == "1234")												   		        // fungsi decision if apabila dengan inisialisasi 1234 sebaga
-				{																	                // sebagi password yang benar
+			case 1:												// case 1 apabila mengetikan angka 1
+				Console.WriteLine("-------------------------");						// sebuah output text yang berisi permintaan password
+				Console.WriteLine("Selamat Datang Admin Toko");						// sda
+				Console.WriteLine("Masukan Password");							// sda
+				Console.WriteLine("Inputkan Angka:");							// sda
+				var password = Console.ReadLine();							// pembacaan password yang telah diinputkan berupa var
+				if (password == "1234")									// fungsi decision if apabila dengan inisialisasi 1234 sebaga
+				{											// sebagi password yang benar
 					Console.WriteLine("Password is correct.");
-					exit=true;													                  	// agar tidak kembali kemenu awal dan dapat melanjutkan ke menu selanjutnya
-					bool aexit = false;									              				// sebuah inisialisasi kembali untuk menu admin
+					exit=true;									// agar tidak kembali kemenu awal dan dapat melanjutkan ke menu selanjutnya
+					bool aexit = false;								// sebuah inisialisasi kembali untuk menu admin
 				while (!aexit)
 				{
-				Console.WriteLine("-------------------------");										//	sebuah output text berisi menu admin apabila password benar
-				Console.WriteLine("Daftar Menu Admin Toko: ");										// sda
-				Console.WriteLine("1. Buku Saat Ini");								 			 	// sda
-				Console.WriteLine("2. Tambahkan Buku");											    // sda
-				Console.WriteLine("3. Keluar");										     			// sda
-				Console.WriteLine("Inputkan Angka:");								  			    // sda
-				int ainput = int.Parse(Console.ReadLine());											// pembacaan console / serial monitor 
-				switch (ainput)														                // sebuah decision switch untuk menu admin
+				Console.WriteLine("-------------------------");						//sebuah output text berisi menu admin apabila password benar
+				Console.WriteLine("Daftar Menu Admin Toko: ");						// sda
+				Console.WriteLine("1. Buku Saat Ini");							// sda
+				Console.WriteLine("2. Tambahkan Buku");							// sda
+				Console.WriteLine("3. Keluar");								// sda
+				Console.WriteLine("Inputkan Angka:");							// sda
+				int ainput = int.Parse(Console.ReadLine());						// pembacaan console / serial monitor 
+				switch (ainput)										// sebuah decision switch untuk menu admin
 				{
-					case 1:														                   	// case 1 berisi program class display buku
-						Console.WriteLine("-------------------------");								// untuk dapat melihat buku secara keseluruhan
-						Console.WriteLine("List Buku Saat ini adalah");								// sda
-						tokobuku.DisplayBuku();										   		        // sda
-						int totalStok = tokobuku.JumlahStok();					    				// sda
-        				Console.WriteLine($"Total Stok: {totalStok}");								// sda
-						break;														                // break akhir dari case 1
-					case 2:															                // case 2 berisi penambahan buku baru
-						Console.WriteLine("Masukkan detail buku baru:");							// bedasarkan variabel constructor sebelumnya
-						Console.Write("Judul: ");							            			// sda
-						string judul = Console.ReadLine();						      				// sda
-						Console.Write("Penerbit: ");								  		        // sda
-						string penerbit = Console.ReadLine();				      					// sda
-						Console.Write("Tahun: ");									       		    // sda
-						int tahun = int.Parse(Console.ReadLine());									// sda
-						Console.Write("Stok: ");									          		// sda
-						int stok = int.Parse(Console.ReadLine());				    				// sda
-						Buku bukuBaru = new Buku(judul, penerbit, tahun, stok);						// penambahan variabel yang telah diisikan untuk buku baru
-						tokobuku.TambahBuku(bukuBaru);								         	   	// penjalanan program penambahan buku
-						break;													                    // akhir case 2
-					case 3:															                // case 3 untuk menutup loop sehingga dapat kembali
-						aexit = true;												                // ke menu sebelumnya
-						exit = false;											                    // sda
-						break;													                    // akhir case 3
-					default:											                        	// default apabalia selain angkat diatas
-						Console.WriteLine("Angka yang Anda masukkan tidak valid."); // sebuah output text berisi informasi
-						break;													                     // akhir switch case admin
+					case 1:										// case 1 berisi program class display buku
+						Console.WriteLine("-------------------------");				// untuk dapat melihat buku secara keseluruhan
+						Console.WriteLine("List Buku Saat ini adalah");				// sda
+						tokobuku.DisplayBuku();							// sda
+						int totalStok = tokobuku.JumlahStok();					// sda
+        				Console.WriteLine($"Total Stok: {totalStok}");					// sda
+						break;									// break akhir dari case 1
+					case 2:										// case 2 berisi penambahan buku baru
+						Console.WriteLine("Masukkan detail buku baru:");			// bedasarkan variabel constructor sebelumnya
+						Console.Write("Judul: ");						// sda
+						string judul = Console.ReadLine();					// sda
+						Console.Write("Penerbit: ");						// sda
+						string penerbit = Console.ReadLine();				     	// sda
+						Console.Write("Tahun: ");						// sda
+						int tahun = int.Parse(Console.ReadLine());				// sda
+						Console.Write("Stok: ");						// sda
+						int stok = int.Parse(Console.ReadLine());				// sda
+						Buku bukuBaru = new Buku(judul, penerbit, tahun, stok);			// penambahan variabel yang telah diisikan untuk buku baru
+						tokobuku.TambahBuku(bukuBaru);						// penjalanan program penambahan buku
+						break;									// akhir case 2
+					case 3:										// case 3 untuk menutup loop sehingga dapat kembali
+						aexit = true;								// ke menu sebelumnya
+						exit = false;								// sda
+						break;									// akhir case 3
+					default:									// default apabalia selain angkat diatas
+						Console.WriteLine("Angka yang Anda masukkan tidak valid."); 		// sebuah output text berisi informasi
+						break;									// akhir switch case admin
 				}
 				}		
 				}
-				else													                          // apabila tidak sesuai dengan password yang telah di inisialisasikan
+				else											// apabila tidak sesuai dengan password yang telah di inisialisasikan
 				{		
-					Console.WriteLine("Password is incorrect.");					      		  // sebuah output text berisi informasi password salah
+					Console.WriteLine("Password is incorrect.");					// sebuah output text berisi informasi password salah
 				}
-				break;																            // akhir case 1 menu awal
-			case 2:																	            // case 2 berisi menu untuk pembeli
-				bool bexit = false;											                   	// sebuah inisialisasi loop agar tidak terjadi looping gila
-				while (!bexit)													            	// sebuah loop untuk menu pembeli
+				break;											// akhir case 1 menu awal
+			case 2:												// case 2 berisi menu untuk pembeli
+				bool bexit = false;									// sebuah inisialisasi loop agar tidak terjadi looping gila
+				while (!bexit)										// sebuah loop untuk menu pembeli
 				{
-				Console.WriteLine("-------------------------");					      			// sebuah output text berisi informasi menu pembeli serta input angka
-				Console.WriteLine("Daftar Menu Pembeli: ");							    	    // sda
-				Console.WriteLine("1. Buku Saat Ini");							          		// sda
-				Console.WriteLine("2. Beli Buku");									            // sda
-				Console.WriteLine("3. Keluar");										            // sda
-				Console.WriteLine("Inputkan Angka:");								            // sda
-				int binput = int.Parse(Console.ReadLine());						        		// pembacaan serial monitor / console
-				switch (binput)														            // sebuah decision untuk pembeli 
+				Console.WriteLine("-------------------------");					      	// sebuah output text berisi informasi menu pembeli serta input angka
+				Console.WriteLine("Daftar Menu Pembeli: ");						// sda
+				Console.WriteLine("1. Buku Saat Ini");							// sda
+				Console.WriteLine("2. Beli Buku");							// sda
+				Console.WriteLine("3. Keluar");								// sda
+				Console.WriteLine("Inputkan Angka:");							// sda
+				int binput = int.Parse(Console.ReadLine());						// pembacaan serial monitor / console
+				switch (binput)										// sebuah decision untuk pembeli 
 				{
-					case 1:															            // case 1 berisi program list buku yang dapat dilihat pembeli
-						Console.WriteLine("-------------------------");			      			// sda
-						Console.WriteLine("List Buku Saat ini adalah");				    		// sda
-						tokobuku.PembeliBuku();									                // sda
-						break;													                // akhir case 1
-					case 2:															            // case 2 berisi program pencarian buku bedasarkan judul yang ingin dibeli 	
-						Console.WriteLine("-------------------------");			      			// sda
-						Console.WriteLine("Masukkan judul buku yang ingin dibeli:");			// sda
-						string judulBuku = Console.ReadLine();						        	// penginputan judul buku
-						Buku bukuDibeli = tokobuku.carijudulbuku(judulBuku);		  			// program pembelian buku
-						if (bukuDibeli != null)													// sebuah decision apabila buku tersedia atau tidak null
-						{																					// dapat dilanjutkan program pembelian buku
-							Console.WriteLine($"Jumlah stok buku {bukuDibeli.Judul}: {bukuDibeli.Stok}");	// sda
-							Console.WriteLine("Masukkan jumlah buku yang ingin dibeli:");					// sda
-							int jumlahBeli = int.Parse(Console.ReadLine());								    // sda
-							if (jumlahBeli <= bukuDibeli.Stok)												// sda
+					case 1:										// case 1 berisi program list buku yang dapat dilihat pembeli
+						Console.WriteLine("-------------------------");			      	// sda
+						Console.WriteLine("List Buku Saat ini adalah");				// sda
+						tokobuku.PembeliBuku();							// sda
+						break;									// akhir case 1
+					case 2:										// case 2 berisi program pencarian buku bedasarkan judul yang ingin dibeli 	
+						Console.WriteLine("-------------------------");			      	// sda
+						Console.WriteLine("Masukkan judul buku yang ingin dibeli:");		// sda
+						string judulBuku = Console.ReadLine();					// penginputan judul buku
+						Buku bukuDibeli = tokobuku.carijudulbuku(judulBuku);		  	// program pembelian buku
+						if (bukuDibeli != null)							// sebuah decision apabila buku tersedia atau tidak null
+						{												// dapat dilanjutkan program pembelian buku
+							Console.WriteLine($"Jumlah stok buku {bukuDibeli.Judul}: {bukuDibeli.Stok}");		// sda
+							Console.WriteLine("Masukkan jumlah buku yang ingin dibeli:");				// sda
+							int jumlahBeli = int.Parse(Console.ReadLine());						// sda
+							if (jumlahBeli <= bukuDibeli.Stok)							// sda
 							{
-								bukuDibeli.Stok -= jumlahBeli;											    // input jumlah beli buku
-								Thread.Sleep(2000);															// sebuah delay untuk pembayaran fiksi 2 detik
+								bukuDibeli.Stok -= jumlahBeli;							// input jumlah beli buku
+								Thread.Sleep(2000);								// sebuah delay untuk pembayaran fiksi 2 detik
 								Console.WriteLine($"Pembelian berhasil. Stok buku {bukuDibeli.Judul} sekarang: {bukuDibeli.Stok}"); // sebuah output text
-							}																			            // untuk menyatakan pembelian telah berhasil
+							}											// untuk menyatakan pembelian telah berhasil
 							else
 							{
 								Console.WriteLine("Pembelian gagal. Jumlah buku yang ingin dibeli melebihi stok."); // apabila pembelian melebihi stok
@@ -216,20 +216,20 @@ public class Program																                    // sebuah class berisi m
 						}
 						else
 						{
-							Console.WriteLine("Buku tidak ditemukan.");										 // apabila judul yang dicari tidak ditemukan
+							Console.WriteLine("Buku tidak ditemukan.");						// apabila judul yang dicari tidak ditemukan
 						}
 						break;
 					case 3:
-						bexit = true;																				                              	// akhir loopt untuk kembali kemenu awal
+						bexit = true;										        // akhir loop untuk kembali kemenu awal
 						exit = false;																				
 						break;
-					default:																					                                	// akhir switch case pembeli
+					default:												// akhir switch case pembeli
 						Console.WriteLine("Angka yang Anda masukkan tidak valid.");
 						break;
 				}
 				}
 				break;
-			default:																							                                	// akhir switch case umum
+			default:														// akhir switch case umum
 				Console.WriteLine("Angka yang Anda masukkan tidak valid.");
 				break;
 		}
